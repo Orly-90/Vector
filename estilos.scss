@@ -7,29 +7,8 @@ header{
     width: 100%;
 }
   /* BARRA DE NAVEGACION */
-.menu{ /*Contenedor Nav*/
-    width:100%;
-    background: #4A88F4; /*color de barra de menues*/
-    display: flex;
-    justify-content: space-between;
-}
-.menu ul{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    margin-right: 25%;
-    position: fixed;
-}
-.menu ul li{
-    font-size: 20px;
-    color: white;
-    line-height: 3rem;
-    padding: 0 72px; /*separacion entre columnas*/
-    border-radius: 10px; /*Que todos los Li tengan borde redondeado*/
-    border-style: groove;
-    position: relative;
-    display: block;
-}
+
+
 li{
     list-style: none;
 }
@@ -37,36 +16,18 @@ li a{
     text-decoration: none; /*borra la linea del hipervinculo*/
     color: white; /* pintamos los que tengan hipervinculo*/
 }
-.menu ul li:hover{
-    background:rgba(41, 209, 232, 0.56);
-}
 
-li li{
-    color: black;
-    border: none;
-}
-.menu li li{ /*los Li que son SubMenues*/
-    background: rgba(147, 148, 155, 0.2) ;
-    max-height: 0;
-    overflow: hidden;
-    transition: all .4s;
-    width: 400px;
-}
-nav li:hover>ul>li{
-    max-height: 500px; /*altura maxima de los desplegables*/
-    overflow: visible;
-}
+
+
 /* Zona de slides*/
-.main{
-    padding: 28px;
-    width: 70%;
-    max-width: 900px; /*tamaño en pantalla*/
-    margin: 20px auto;
+.anterior{
+    width: 90px;
+    height: 90px;
 }
 
-
-.slides .active{
-    background: black; /*marcado fijo en los nros donde esta parada la imagen*/
+.siguiente{
+    width: 90px;
+    height: 90px;
 }
 
 /*Zona de formulario*/
@@ -90,8 +51,10 @@ textarea{
     max-width: 100%;
 }
   /* Zona de Pie de Pagina */
+
 .GaleCel{
     width: 80%;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
@@ -101,40 +64,49 @@ textarea{
                           "img1 img4 img5 img6"
                           "img7 img4 img8 img8";
     grid-gap: 10px;
+
+    .foto{ //Que ocupe el 100% de las grillas del GRID
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    .ima{
+        border-radius: 10px;
+    }
+
+    .ima1{
+        grid-area: img1;
+        background-color: aqua;
+    }
+    .ima2{
+        grid-area: img2;
+        background-color: rgb(89, 255, 0);
+    }
+    .ima3{
+        grid-area: img3;
+        background-color: rgb(55, 41, 207);
+    }
+    .ima4{
+        grid-area: img4;
+        background-color: rgb(228, 124, 192);
+    }
+    .ima5{
+        grid-area: img5;
+        background-color: rgb(255, 0, 25);
+    }
+    .ima6{
+        grid-area: img6;
+        background-color: rgb(255, 225, 0);
+    }
+    .ima7{
+        grid-area: img7;
+        background-color: rgb(241, 251, 164);
+    }
+    .ima8{
+        grid-area: img8;
+        background-color: rgb(75, 84, 84);
+    }
 }
-.img{
-    border: 2px solid #4A88F4;
-    border-radius: 17px;
-}
-.img1{
-    grid-area: img1;
-    background-color: aqua;
-}
-.img2{
-    grid-area: img2;
-    background-color: rgb(89, 255, 0);
-}
-.img3{
-    grid-area: img3;
-    background-color: rgb(55, 41, 207);
-}
-.img4{
-    grid-area: img4;
-    background-color: rgb(228, 124, 192);
-}
-.img5{
-    grid-area: img5;
-    background-color: rgb(255, 0, 25);
-}
-.img6{
-    grid-area: img6;
-    background-color: rgb(255, 225, 0);
-}
-.img7{
-    grid-area: img7;
-    background-color: rgb(241, 251, 164);
-}
-.img8{
-    grid-area: img8;
-    background-color: rgb(75, 84, 84);
-}
+
+
+
