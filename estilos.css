@@ -4,29 +4,68 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f8f8f8;
+}
+
 header {
   width: 100%;
 }
 
 /* BARRA DE NAVEGACION */
-li {
-  list-style: none;
-}
-
-li a {
-  text-decoration: none; /*borra la linea del hipervinculo*/
-  color: white; /* pintamos los que tengan hipervinculo*/
-}
-
 /* Zona de slides*/
+.btn-previo {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.btn-siguiente {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+}
+
 .anterior {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
 }
 
 .siguiente {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
+}
+
+.nosotros {
+  margin-top: 30px;
+  height: 500px;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  height: auto;
+}
+
+.izquierda {
+  height: 500px;
+  background-image: url(imagenes/quienSoy.jpg);
+  background-size: cover;
+}
+
+.derecha h3 {
+  text-align: center;
+  font-size: 40px;
+}
+.derecha p {
+  text-align: justify;
+  font-size: 30px;
+}
+.derecha:hover {
+  transition: 0.9s;
+  background-color: rgba(188, 188, 188, 0.765);
+}
+
+.izquierda {
+  background-image: url(galeria/quienSoy.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /*Zona de formulario*/
@@ -54,8 +93,13 @@ textarea {
 }
 
 /* Zona de Pie de Pagina */
+footer h2 {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
 .GaleCel {
-  width: 80%;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
