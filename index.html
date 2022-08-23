@@ -143,18 +143,18 @@
   <fieldset class="container" id="contactenos" data-aos="fade-left">
     <legend>Aquí podes hacer tu reserva, no dudes en contactarnos!</legend>
     <form action="enviar.php" method="post" enctype="text/plain">
-        <label for="nombre1">Nombre</label>
-        <input type="text" placeholder="ingrese nombre">
-        <label for="apellido">Apellido</label>
-        <input type="text" placeholder="ingrese apellido">
+        <label for="nombre" >Nombre</label>
+        <input id="Nombre" type="text" placeholder="ingrese nombre" >
+        <label for="apellido" >Apellido</label>
+        <input id="Apellido" type="text" placeholder="ingrese apellido">
         <label for="">Nro de Celular</label>
-        <input type="number" placeholder="ingrese nro">
+        <input id="Numero" type="number" placeholder="ingrese nro">
         <label for="">Correo</label>
-        <input type="mail">
+        <input id="Mail" type="mail">
         <label for="">Comentarios</label>
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <button>
-            <input id="lista" type="button" value="Reservar" onclick="agregar();"> <!-- boton de reservar -->
+            <input id="lista" type="button" value="Reservar" onclick="capturar();"> <!-- boton de reservar -->
         </button>
         <button>
             <input type="reset" value="Borrar formulario"> <!-- boton de borrar formulario -->
@@ -162,14 +162,12 @@
     </form>
 </fieldset>
 
-  <h4>Este sector es para agregar listas</h4>
-  <ul id="">
-    <li>Lorem ipsum dolor sit amet</li>
-    <li>Consectetuer adipiscing elit</li>
-    <li>Sed mattis enim vitae orci</li>
-    <li>Phasellus libero</li>
-    <li>Maecenas nisl arcu</li>
+  <h4>Este sector es para agregar Turnos reservados</h4>
+  <ul id="listaReservados">
+   
+
   </ul>
+
   
 
   

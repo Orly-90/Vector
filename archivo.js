@@ -45,15 +45,39 @@ function pasarPrecio(opcionesDePrecio) {
             respuesta = prompt("Desea seguir consultando?? ingrese cualquier letra, caso contrario (n)");
         } while (respuesta != "n" && pregunta != "n")   
     }
-    var baseDeDatos = []
-    function capturar() {
-        var elemento = document.createElement("li");
-        var texto = document.createTextNode("Elemento de prueba");
-        elemento.appendChild(texto);
+    //Reservar turnos, no pude terminar, no puedo hacer que me genere Listas de Turnos reservados
+
+    var arrayDeReservas = [] //preparo el array
+    function capturar (){
     
-        var lista = document.getElementById("lista").innerHTML;
-        lista.appendChild(elemento);
-    
-        var nuevoElemento = "<li>Texto de prueba</li><br>";
-        lista.innerHTML = lista.innerHTML + nuevoElemento;
+        let entradaNombre = document.getElementById("Nombre").value;
+        let entradaApellido = document.getElementById("Apellido").value;
+        let entradaCelu= document.getElementById("Numero").value;
+        let entradaMail = document.getElementById("Mail").value;
+        
+    }
+    let nuevaReserva = new Reservacion(nombre, apellido, nroCel, mail);
+    arrayDeReservas.push(nuevaReserva); //genero los arrays
+    mostrarListado();
+
+    function mostrarListado()
+    {
+        let listaLi = document.getElementById('listaReservados');
+        listaLi.innerHTML = "";
+        for (guardados of arrayDeReservas)
+        {
+            let nodo = document.createElement('li');
+            nodo.innerText = `${guardados.nombreUsuario}`
+            listaLi.appendChild(nodo);
+        }
+    }
+    class Reservacion
+    {
+        constructor(nombre, apellido, nroCel, mail){
+            this.nombreUsuario = nombre;
+            this.apellidoUsuario = apellido;
+            this.nroCelUsuario = nroCel;
+            this.mailUsuario = mail;
+
+        }
     }
