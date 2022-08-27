@@ -46,31 +46,6 @@ function pasarPrecio(opcionesDePrecio) {
         } while (respuesta != "n" && pregunta != "n")   
     }
     //Reservar turnos, no pude terminar, no puedo hacer que me genere Listas de Turnos reservados
-
-    var arrayDeReservas = [] //preparo el array
-    function capturar (){
-    
-        let entradaNombre = document.getElementById("Nombre").value;
-        let entradaApellido = document.getElementById("Apellido").value;
-        let entradaCelu= document.getElementById("Numero").value;
-        let entradaMail = document.getElementById("Mail").value;
-        
-    }
-    let nuevaReserva = new Reservacion(nombre, apellido, nroCel, mail);
-    arrayDeReservas.push(nuevaReserva); //genero los arrays
-    mostrarListado();
-
-    function mostrarListado()
-    {
-        let listaLi = document.getElementById('listaReservados');
-        listaLi.innerHTML = "";
-        for (guardados of arrayDeReservas)
-        {
-            let nodo = document.createElement('li');
-            nodo.innerText = `${guardados.nombreUsuario}`
-            listaLi.appendChild(nodo);
-        }
-    }
     class Reservacion
     {
         constructor(nombre, apellido, nroCel, mail){
@@ -81,3 +56,40 @@ function pasarPrecio(opcionesDePrecio) {
 
         }
     }
+
+    var arrayDeReservas = [];//preparo el array
+    let botonCapturar = document.getElementById("btnCapturar");
+    botonCapturar.onclick = () => {
+
+            let entradaNombre = document.getElementById("Nombre").value;
+            let entradaApellido = document.getElementById("Apellido").value;
+            let entradaCelu= document.getElementById("Numero").value;
+            let entradaMail = document.getElementById("Mail").value;
+            
+            let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
+            arrayDeReservas.push(nuevaReserva); //genero los arrays
+            alert("Su reserva fue hecha");
+
+    }
+
+    let botonResetear = document.getElementById("btnResetear");
+    botonResetear.onclick = () => {
+        let miFormulario = document.getElementById("formul");
+        miFormulario.reset();
+    }
+    
+let botonVer = document.getElementById("btnVer");
+botonVer.onclick = () => {
+
+        let listaLi = document.getElementById('listaReservados');
+        listaLi.innerHTML = "";
+        for (guardados of arrayDeReservas)
+        {
+            let nodo = document.createElement('li');
+            nodo.innerText = `${guardados.nombreUsuario} ${guardados.apellidoUsuario}`
+            listaLi.appendChild(nodo);
+        }
+    }
+
+    
+    

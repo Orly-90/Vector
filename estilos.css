@@ -76,16 +76,15 @@ fieldset {
   margin: auto;
   border: transparent;
 }
+fieldset .formulario {
+  width: 450px;
+  margin: auto;
+  padding: 10px 20px;
+}
 
 legend {
   text-align: center;
   font-size: 20px;
-}
-
-form {
-  width: 450px;
-  margin: auto;
-  padding: 10px 20px;
 }
 
 label {
@@ -117,6 +116,11 @@ textarea {
   min-height: 100px;
   max-height: 200px;
   max-width: 100%;
+}
+
+/*FIN Zona de formulario*/
+.Turnos {
+  width: 50%;
 }
 
 /* Zona de Pie de Pagina */
