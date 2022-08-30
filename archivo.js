@@ -24,7 +24,6 @@ function pasarPrecio(opcionesDePrecio) {
             alert("El cambio de modulo sale 3500"); 
             break;
         case "2": 
-        
             alert("El cambio de pin de carga sale 2000");
             break;
         case "3": 
@@ -45,7 +44,8 @@ function pasarPrecio(opcionesDePrecio) {
             respuesta = prompt("Desea seguir consultando?? ingrese cualquier letra, caso contrario (n)");
         } while (respuesta != "n" && pregunta != "n")   
     }
-    //Reservar turnos, no pude terminar, no puedo hacer que me genere Listas de Turnos reservados
+    //Reservar turnos y que me genere Listas de Turnos reservados
+
     class Reservacion
     {
         constructor(nombre, apellido, nroCel, mail){
@@ -58,6 +58,8 @@ function pasarPrecio(opcionesDePrecio) {
     }
 
     var arrayDeReservas = [];//preparo el array
+    var copiaArrayDeReservas = [...arrayDeReservas,'Bahia Blanca', '8000']; //copia el array original
+    console.log(copiaArrayDeReservas);
     let botonCapturar = document.getElementById("btnCapturar");
     botonCapturar.onclick = () => {
 
@@ -71,6 +73,8 @@ function pasarPrecio(opcionesDePrecio) {
             alert("Su reserva fue hecha");
 
     }
+
+    //Boton de resetear en proceso!!
 
     let botonResetear = document.getElementById("btnResetear");
     botonResetear.onclick = () => {
