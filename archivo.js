@@ -67,10 +67,27 @@ function pasarPrecio(opcionesDePrecio) {
             let entradaApellido = document.getElementById("Apellido").value;
             let entradaCelu= document.getElementById("Numero").value;
             let entradaMail = document.getElementById("Mail").value;
-            
-            let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
-            arrayDeReservas.push(nuevaReserva); //genero los arrays
-            alert("Su reserva fue hecha");
+            let parrafo = document.getElementById("advertencia")
+            let advertencia = ""
+            let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            let entrar = false; 
+            if (entradaNombre.length <6) {
+                advertencia += `Nombre demasiado corto <br>`;
+                entrar = true
+            }
+            if (!regexEmail.test(entradaMail)) {
+                advertencia += `El email no es valido <br>`;
+                entrar = true
+            }
+            if (entrar) {
+                parrafo.innerHTML = advertencia;
+            }
+            else {
+                let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
+                arrayDeReservas.push(nuevaReserva); //genero los arrays
+                parrafo.innerHTML = "";
+                alert("Su reserva fue hecha");
+            }
 
     }
 
