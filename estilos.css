@@ -69,17 +69,18 @@ header {
 }
 
 /*Zona de formulario*/
+form {
+  width: 450px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
 fieldset {
   background-image: url();
   background-size: cover;
   background-repeat: no-repeat;
   margin: auto;
   border: transparent;
-}
-fieldset .formulario {
-  width: 450px;
-  margin: auto;
-  padding: 10px 20px;
 }
 
 legend {

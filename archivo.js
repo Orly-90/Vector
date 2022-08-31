@@ -90,7 +90,9 @@ function pasarPrecio(opcionesDePrecio) {
                     let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
                     arrayDeReservas.push(nuevaReserva); //genero los arrays
                     alert("Su reserva fue hecha");
+                    form.reset(); //reseteo formulario
                 }
+                
             })
     
 let botonVer = document.getElementById("btnVer");

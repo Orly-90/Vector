@@ -65,6 +65,11 @@ header{
 }
 
 /*Zona de formulario*/
+form {
+    width: 450px;
+    margin: auto; //*queda centrado todo el formulario*/
+    padding: 10px 20px; //* relleno vertical y horizontal*/
+}
 fieldset{
     background-image: url();
     background-size: cover;
@@ -72,11 +77,7 @@ fieldset{
     margin: auto;
     border: transparent;
 
-    .formulario{
-        width: 450px;
-        margin: auto; //*queda centrado todo el formulario*/
-        padding: 10px 20px; //* relleno vertical y horizontal*/
-    }
+
 }
 legend{
     text-align: center;
