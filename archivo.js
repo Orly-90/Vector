@@ -61,19 +61,20 @@ function pasarPrecio(opcionesDePrecio) {
     var copiaArrayDeReservas = [...arrayDeReservas,'Bahia Blanca', '8000']; //copia el array original
     console.log(copiaArrayDeReservas);
             
-            let entradaNombre = document.getElementById("Nombre");
-            let entradaApellido = document.getElementById("Apellido").value;
-            let entradaCelu= document.getElementById("Numero").value;
-            let entradaMail = document.getElementById("Mail");
+            
             let form = document.getElementById("form")
             let parrafo = document.getElementById("advertencia");
         
             form.addEventListener("submit", e => {
-                e.preventDefault();
+                e.preventDefault(); //freno el valor por defecto del formulario que es Enviar
+                let entradaNombre = document.getElementById("Nombre").value;
+                let entradaApellido = document.getElementById("Apellido").value;
+                let entradaCelu= document.getElementById("Numero").value;
+                let entradaMail = document.getElementById("Mail");
                 let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; //expresion Regular
                 let advertencia = ""
                 let entrar = false; 
-                if (entradaNombre.value.length <6) {
+                if (entradaNombre.length <6) {
                     advertencia += `Nombre demasiado corto <br>`;
                     entrar = true
                 }
