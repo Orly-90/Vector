@@ -60,44 +60,37 @@ function pasarPrecio(opcionesDePrecio) {
     var arrayDeReservas = [];//preparo el array
     var copiaArrayDeReservas = [...arrayDeReservas,'Bahia Blanca', '8000']; //copia el array original
     console.log(copiaArrayDeReservas);
-    let botonCapturar = document.getElementById("btnCapturar");
-    botonCapturar.onclick = () => {
-
-            let entradaNombre = document.getElementById("Nombre").value;
+            
+            let entradaNombre = document.getElementById("Nombre");
             let entradaApellido = document.getElementById("Apellido").value;
             let entradaCelu= document.getElementById("Numero").value;
-            let entradaMail = document.getElementById("Mail").value;
-            let parrafo = document.getElementById("advertencia")
-            let advertencia = ""
-            let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            let entrar = false; 
-            if (entradaNombre.length <6) {
-                advertencia += `Nombre demasiado corto <br>`;
-                entrar = true
-            }
-            if (!regexEmail.test(entradaMail)) {
-                advertencia += `El email no es valido <br>`;
-                entrar = true
-            }
-            if (entrar) {
-                parrafo.innerHTML = advertencia;
-            }
-            else {
-                let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
-                arrayDeReservas.push(nuevaReserva); //genero los arrays
-                parrafo.innerHTML = "";
-                alert("Su reserva fue hecha");
-            }
-
-    }
-
-    //Boton de resetear en proceso!!
-
-    let botonResetear = document.getElementById("btnResetear");
-    botonResetear.onclick = () => {
-        let miFormulario = document.getElementById("formul");
-        miFormulario.reset();
-    }
+            let entradaMail = document.getElementById("Mail");
+            let form = document.getElementById("form")
+            let parrafo = document.getElementById("advertencia");
+        
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; //expresion Regular
+                let advertencia = ""
+                let entrar = false; 
+                if (entradaNombre.value.length <6) {
+                    advertencia += `Nombre demasiado corto <br>`;
+                    entrar = true
+                }
+                if (!regexEmail.test(entradaMail.value)) {
+                    advertencia += `El email no es valido <br>`;
+                    entrar = true
+                }
+                if (entrar) {
+                    parrafo.innerHTML = advertencia;
+                }
+                else {
+                    parrafo.innerHTML = "";
+                    let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
+                    arrayDeReservas.push(nuevaReserva); //genero los arrays
+                    alert("Su reserva fue hecha");
+                }
+            })
     
 let botonVer = document.getElementById("btnVer");
 botonVer.onclick = () => {

@@ -152,7 +152,7 @@
   </div>
   <fieldset class="container" id="contactenos" data-aos="fade-left">
     <legend>Aquí podes hacer tu reserva, no dudes en contactarnos!</legend>
-    <div class="formulario" id="formul">
+    <form id="form" action="">
       <label for="nombre" >Nombre</label>
       <input id="Nombre" type="text" placeholder="ingrese nombre" >
       <label for="apellido" >Apellido</label>
@@ -164,13 +164,13 @@
       <label for="">Comentarios</label>
       <textarea name="" id="" cols="30" rows="10"></textarea>
       <button>
-          <input id="btnCapturar" type="button" value="Reservar" > <!-- boton de reservar -->
+          <input id="btnCapturar" type="submit" value="Reservar" > <!-- boton de reservar -->
       </button>
       <button>
-          <input id="btnResetear" type="button" value="Borrar formulario"> <!-- boton de borrar formulario -->
+          <input  type="reset" value="Borrar formulario"> <!-- boton de borrar formulario -->
       </button>
       <p id="advertencia"></p>
-    </div>
+    </form>  
 </fieldset>
 
   <h4>Ver turnos reservados</h4>
