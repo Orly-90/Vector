@@ -171,8 +171,17 @@
       </button>
       <p id="advertencia"></p>
     </form>  
+    <h4>Buscar Presupuesto</h4>
+    <select id="Presupuestos">
+      <option selected>Consulta Presupuesto</option>
+      <option value="Modulo">Modulo</option>
+      <option value="Cambio de Pin">Cambio de pin</option>
+      <option value="Cambio de Bateria">Cambio de bateria</option>
+    </select>
+    <button>
+      <input type="button" value="Consultar" id="btnPresupuesto">
+    </button>
 </fieldset>
-
   <h4>Ver turnos reservados</h4>
   <button class="Turnos">
     <input id="btnVer" type="button" value="Ver Turno">
@@ -192,5 +201,6 @@
       });
   </script>
   <script src="archivo.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

@@ -1,49 +1,7 @@
 /*
 Consigna: Seleccionar una opcion de reparacion y devolver presupuesto.
 */
-let listaDePrecio, respuesta;
 
-// var sumaDePrecios = 0;
-// var Mayor = 0;
-
-// function parsearPrecio(precio) {
-//         precioParseado = parseInt(prompt(precio));
-//         return precioParseado
-//     }
-
-// function obtenerMayor(lista1, lista2) {
-//     let elMayor = 0;
-//     if (lista1 > lista2) {
-//         elMayor = lista1;
-//         return elMayor
-//     }
-// }
-function pasarPrecio(opcionesDePrecio) {
-    switch (opcionesDePrecio) {
-        case "1":
-            alert("El cambio de modulo sale 3500"); 
-            break;
-        case "2": 
-            alert("El cambio de pin de carga sale 2000");
-            break;
-        case "3": 
-            
-            alert("El cambio de bateria sale 1300");
-            break;
-        default:
-            alert("Ninguna de las opciones ingresadas es correcta")
-            break;
-    }
-}
-
-    alert("Puede buscar precio de reparaciones, 1: Cambio de Modulo, 2: Pin de Carga, 3: Cambio de Bateria.");
-    let pregunta = prompt("Desea consultar algun presupuesto?? Presione cualquier letra, caso contrario (n)");
-    if (pregunta != "n"){   
-        do{
-            listaDePrecio = pasarPrecio(prompt("Ingrese una opcion para saber el presupuesto"));
-            respuesta = prompt("Desea seguir consultando?? ingrese cualquier letra, caso contrario (n)");
-        } while (respuesta != "n" && pregunta != "n")   
-    }
     //Reservar turnos y que me genere Listas de Turnos reservados
 
     class Reservacion
@@ -57,44 +15,58 @@ function pasarPrecio(opcionesDePrecio) {
         }
     }
 
-    var arrayDeReservas = [];//preparo el array
-    var copiaArrayDeReservas = [...arrayDeReservas,'Bahia Blanca', '8000']; //copia el array original
+    const arrayDeReservas = [];//preparo el array
+    const copiaArrayDeReservas = [...arrayDeReservas,'Bahia Blanca', '8000']; //copia el array original
     console.log(copiaArrayDeReservas);
             
-            
-            let form = document.getElementById("form")
-            let parrafo = document.getElementById("advertencia");
+
+    let form = document.getElementById("form")
+    let parrafo = document.getElementById("advertencia");
         
-            form.addEventListener("submit", e => {
-                e.preventDefault(); //freno el valor por defecto del formulario que es Enviar
-                let entradaNombre = document.getElementById("Nombre").value;
-                let entradaApellido = document.getElementById("Apellido").value;
-                let entradaCelu= document.getElementById("Numero").value;
-                let entradaMail = document.getElementById("Mail");
-                let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; //expresion Regular
-                let advertencia = ""
-                let entrar = false; 
-                if (entradaNombre.length <6) {
-                    advertencia += `Nombre demasiado corto <br>`;
-                    entrar = true
-                }
-                if (!regexEmail.test(entradaMail.value)) {
-                    advertencia += `El email no es valido <br>`;
-                    entrar = true
-                }
-                if (entrar) {
-                    parrafo.innerHTML = advertencia;
-                }
-                else {
-                    parrafo.innerHTML = "";
-                    let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
-                    arrayDeReservas.push(nuevaReserva); //genero los arrays
-                    alert("Su reserva fue hecha");
-                    form.reset(); //reseteo formulario
-                }
-                
+    form.addEventListener("submit", e => {
+        e.preventDefault(); //freno el valor por defecto del formulario que es Enviar
+        let entradaNombre = document.getElementById("Nombre").value;
+        let entradaApellido = document.getElementById("Apellido").value;
+        let entradaCelu= document.getElementById("Numero").value;
+        let entradaMail = document.getElementById("Mail");
+        let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; //expresion Regular
+        let advertencia = ""
+        let entrar = false; 
+        if (entradaNombre.length <6) {
+            advertencia += `Nombre demasiado corto <br>`;
+            entrar = true
+        }
+        if (!regexEmail.test(entradaMail.value)) {
+            advertencia += `El email no es valido <br>`;
+            entrar = true
+        }
+        if (entrar) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Oops...algo anda mal',
+                showConfirmButton: false,
+                timer: 1500
             })
-    
+            parrafo.innerHTML = advertencia;
+
+        }
+        else {
+            parrafo.innerHTML = "";             //creo los objetos con los datos capturados
+            let nuevaReserva = new Reservacion(entradaNombre, entradaApellido, entradaCelu, entradaMail);
+            arrayDeReservas.push(nuevaReserva); //genero los arrays
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Tu reserva fue exitosa',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            form.reset(); //reseteo formulario
+        }
+                
+    })
+//Boton ver Rerservas    
 let botonVer = document.getElementById("btnVer");
 botonVer.onclick = () => {
 
@@ -107,6 +79,35 @@ botonVer.onclick = () => {
             listaLi.appendChild(nodo);
         }
     }
+// Consultar Presupuesto de Reparaciones 
 
+class Consulta 
+    {
+        constructor (tipoReparacion){
+            this.tipoReparacion = tipoReparacion;
+        }
+    }
     
+let botonPresupuesto = document.getElementById("btnPresupuesto")
+botonPresupuesto.onclick = () => {
+    let entradaPresupuesto = document.getElementById("Presupuestos").value;
+
+    let respuestaPrecio = new Consulta(entradaPresupuesto);
+    mostarOpciones(respuestaPrecio);
+}
+
+const mostarOpciones = (opcionSeleccionada) => {
     
+        if (opcionSeleccionada = "Modulo") {
+            
+            alert("El cambio de modulo sale 3500"); 
+            
+        } if (opcionSeleccionada = "Cambio de Pin"){
+
+                alert("El cambio de pin de carga sale 2000");
+        }if (opcionSeleccionada = "Cambio de Bateria"){
+
+                alert("El cambio de bateria sale 1300");
+        }
+        
+}
